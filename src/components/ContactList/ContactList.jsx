@@ -1,19 +1,23 @@
 import React from "react";
+import { ContactsList, ContactsItem, TextContainer, NameText, ContactsButton } from './ContactList.styled'
 
 const ContactList = ({ find, deleteContact }) => {
     return (
-      <ul>
+      <ContactsList>
         {find.map((contact) => (
-          <li key={contact.id}>
-            <span>
-              {contact.name}: {contact.number}
-            </span>
-            <button type="button" onClick={() => deleteContact(contact.id)}>
+          <ContactsItem key={contact.id}>
+            <TextContainer>
+            <NameText>
+              {contact.name}
+            </NameText>
+            <span>{contact.number}</span>
+            </TextContainer>
+            <ContactsButton type="button" onClick={() => deleteContact(contact.id)}>
               Delete
-            </button>
-          </li>
+            </ContactsButton>
+          </ContactsItem>
         ))}
-      </ul>
+      </ContactsList>
     );
   };
   

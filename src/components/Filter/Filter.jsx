@@ -1,10 +1,11 @@
 import React from "react";
+import { FilterContainer, FilterLabel, FilterInput, FilterButton } from "./Filter.styled";
 
 const Filter = ({ filter, onChange, clear }) => {
   return (
-    <>
-      <label>Find contacts by name </label>
-      <input
+    <FilterContainer>
+      <FilterLabel>Find contacts by name 
+      <FilterInput
         type="text"
         value={filter}
         name="filter"
@@ -12,8 +13,9 @@ const Filter = ({ filter, onChange, clear }) => {
         placeholder="Enter search name"
         autoComplete="off"
       />
-      <button type="button" onClick={() => clear()}>Clear</button>
-    </>
+      </FilterLabel>
+      <FilterButton type="button" onClick={() => clear()}>Clear</FilterButton>
+    </FilterContainer>
   );
 };
 

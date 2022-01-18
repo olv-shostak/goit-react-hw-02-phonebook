@@ -1,5 +1,6 @@
 import React from "react";
 import { nanoid } from 'nanoid';
+import { Form, FormLabel, InputField, FormButton } from "./ContactForm.styled";
 
 class ContactForm extends React.Component {
     state = {
@@ -30,10 +31,10 @@ class ContactForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-          <label>
+            <Form onSubmit={this.handleSubmit}>
+          <FormLabel>
             Name
-            <input
+            <InputField
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -43,10 +44,10 @@ class ContactForm extends React.Component {
               value={this.state.name}
               onChange={this.handleOnChange}
             />
-          </label>
-          <label>
+          </FormLabel>
+          <FormLabel>
             Phone
-            <input
+            <InputField
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,9 +57,9 @@ class ContactForm extends React.Component {
               value={this.state.number}
               onChange={this.handleOnChange}
             />
-          </label>
-          <button type="submit">Add contact</button>
-        </form>
+          </FormLabel>
+          <FormButton type="submit">Add contact</FormButton>
+        </Form>
         )
     }
 }

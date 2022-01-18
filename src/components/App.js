@@ -1,5 +1,5 @@
-import './App.css';
 import React from 'react';
+import { Container, Section, Title, TitleContacts } from './App.styled';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
@@ -50,17 +50,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Phonebook</h1>
-        <ContactForm enterSubmit={this.addContact}></ContactForm>
-        <h2>Contacts</h2>
-        <Filter
-          filter={this.state.filter}
-          onChange={this.handlChange}
-          clear={this.clearFilterInput}
-        />
-        <ContactList find={this.findContact()} deleteContact={this.deleteContact}></ContactList>
-      </div>
+      <Container>
+        <Section>
+          <Title>Phonebook</Title>
+          <ContactForm enterSubmit={this.addContact}></ContactForm>
+        </Section>
+        <Section>
+          <TitleContacts>Contacts</TitleContacts>
+          <Filter
+            filter={this.state.filter}
+            onChange={this.handlChange}
+            clear={this.clearFilterInput}
+          />
+          <ContactList find={this.findContact()} deleteContact={this.deleteContact}></ContactList>
+        </Section>
+      </Container>
     );
   }
 }
